@@ -1,0 +1,45 @@
+if [ -d "${CUSTOMDIR}/antigen" ]
+then
+    source ${CUSTOMDIR}/antigen/antigen.zsh
+    antigen-use oh-my-zsh
+    antigen bundles <<EOBUNDLES
+    git
+    perl
+    rvm
+    cpanm
+    zsh-users/zsh-syntax-highlighting
+    command-not-found
+    debian
+    battery
+    history-substring-search
+    docker
+    web-search
+EOBUNDLES
+fi
+
+antigen-theme eastwood
+antigen-apply
+
+if [ -d "${CUSTOMDIR}/bin" ] ; then
+    PATH="$CUSTOMDIR/bin:${PATH}"
+fi
+
+
+## -- rbenv setup
+if [ -d "${CUSTOMDIR}/.rbenv/bin" ]
+then
+    export PATH="${CUSTOMDIR}/.rbenv/bin:$PATH"
+    eval "$(rbenv init -)"
+fi
+
+#plenv
+if [ -d "$CUSTOMDIR/.plenv/bin" ] 
+then 
+    export PATH="${CUSTOMDIR}/.plenv/bin:$PATH"
+    eval "$(plenv init -)"
+fi
+
+export DISABLE_AUTO_TITLE=true
+
+export GOPATH=${CUSTOMDIR}/Projects/golang
+export PATH=${PATH}:${GOPATH}/bin
