@@ -37,7 +37,8 @@
         " The next three lines ensure that the ~/.vim/bundle/ system works
         filetype on
         filetype off
-        set rtp+=myrcpath . '/bundle/vundle'
+        let $MYVUNDLEPATH = myrcpath . '/bundle/vundle'
+        set rtp+=$MYVUNDLEPATH
         call vundle#rc()
     " }
 
