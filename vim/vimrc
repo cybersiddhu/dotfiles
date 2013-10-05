@@ -24,16 +24,20 @@
     " Windows Compatible {
         " On Windows, also use '.vim' instead of 'vimfiles'; this makes synchronization
         " across (heterogeneous) systems easier.
-        if has('win32') || has('win64')
-          set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
-        endif
+        "if has('win32') || has('win64')
+          "set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
+        "endif
     " }
+
+    " Needed to pickup custom path with configuration files{
+      let myrcpath = fnamemodify(expand($MYVIMRC),":h")
+    "}
 
     " Setup Bundle Support {
         " The next three lines ensure that the ~/.vim/bundle/ system works
         filetype on
         filetype off
-        set rtp+=~/.vim/bundle/vundle
+        set rtp+=myrcpath . '/bundle/vundle'
         call vundle#rc()
     " }
 
@@ -42,20 +46,20 @@
 " Bundles {
 
     " Use local bundles if available {
-        if filereadable(expand("~/.vimrc.bundles.local"))
-            source ~/.vimrc.bundles.local
+        if filereadable(expand(myrcpath . "/.vimrc.bundles.local"))
+            source expand(myrcpath. "/.vimrc.bundles.local")
         endif
     " }
 
     " Use fork bundles if available {
-        if filereadable(expand("~/.vimrc.bundles.fork"))
-            source ~/.vimrc.bundles.fork
+        if filereadable(expand(myrcpath . "/.vimrc.bundles.fork"))
+            source expand(myrcpath. "/.vimrc.bundles.fork")
         endif
     " }
 
     " Use bundles config {
-        if filereadable(expand("~/.vimrc.bundles"))
-            source ~/.vimrc.bundles
+        if filereadable(expand(myrcpath . "/.vimrc.bundles"))
+            source expand(myrcpath. "/.vimrc.bundles")
         endif
     " }
 
@@ -119,7 +123,7 @@
 
 " Vim UI {
 
-    if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
+    if filereadable(expand(myrcpath . "/vim/bundle/vim-colors-solarized/colors/solarized.vim"))
         let g:solarized_termcolors=256
         color solarized                 " Load a colorscheme
     endif
@@ -669,20 +673,20 @@
 " }
 
 " Use fork vimrc if available {
-    if filereadable(expand("~/.vimrc.fork"))
-        source ~/.vimrc.fork
+    if filereadable(expand(myrcpath. "/.vimrc.fork"))
+        source expand(myrcpath . "/.vimrc.fork")
     endif
 " }
 
 " Use local vimrc if available {
-    if filereadable(expand("~/.vimrc.local"))
-        source ~/.vimrc.local
+    if filereadable(expand(myrcpath. "/.vimrc.local"))
+        source expand(myrcpath . "/.vimrc.local")
     endif
 " }
 
 " Use local gvimrc if available and gui is running {
     if has('gui_running')
-        if filereadable(expand("~/.gvimrc.local"))
+        if filereadable(expand(myrcpath. "/.gvimrc.local"))
             source ~/.gvimrc.local
         endif
     endif

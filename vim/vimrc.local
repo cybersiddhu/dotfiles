@@ -1,0 +1,81 @@
+UnBundle  'spf13/PIV'
+UnBundle  'arnaud-lb/vim-php-namespace'
+UnBundle  'derekwyatt/vim-scala'
+UnBundle  'derekwyatt/vim-sbt'
+UnBundle  'kchmck/vim-coffee-script'
+
+
+UnBundle 'tpope/vim-cucumber'
+UnBundle 'quentindecock/vim-cucumber-align-pipes'
+UnBundle 'Puppet-Syntax-Highlighting'
+UnBundle 'honza/snipmate-snippets'
+
+
+
+if !exists('$XAUTHORITY')
+    set t_Co=256
+    let g:solarized_contrast="normal"    "default value is normal
+    let g:solarized_visibility="normal"    "default value is normal
+    let g:solarized_termcolors=16
+    set background=dark
+    color solarized
+else 
+    set t_Co=256
+    let g:solarized_contrast="normal"    "default value is normal
+    let g:solarized_visibility="normal"    "default value is normal
+    let g:solarized_termcolors=16
+    set background=dark
+    color solarized
+endif
+
+
+set nocursorline
+
+" perl folding {
+    let perl_fold = 1
+    let perl_fold_blocks = 1
+" }
+
+" mapping perltidy {
+    au FileType perl imap <Leader>pt <Esc>:%!perltidy -q<CR>
+    au FileType perl nmap <Leader>pt :%!perltidy -q<CR>
+" }
+
+
+" Extra  Fugitive {
+    nnoremap <silent> <Leader>ga :Gwrite<CR>
+" }
+
+" Personal keybindings {
+    imap <silent> <Leader>w <Esc>:write<CR>
+    nmap <silent> <Leader>w :write<CR>
+" }
+
+" Session settings {
+   let  sessionman_save_on_exit=1
+" }
+
+" Syntastic plugin {
+    let g:syntastic_perl_lib_path = './lib'
+"}
+
+" golang vim support {
+"    filetype off
+"    filetype plugin indent off
+"    set rtp+=/usr/share/vim/addons
+"    filetype plugin indent on
+"    syntax on
+" }
+
+" golang tagbar support {
+let g:tagbar_type_go = {
+    \ 'ctagstype': 'go',
+        \ 'kinds' : [
+            \'p:package',
+            \'f:function',
+            \'v:variables',
+            \'t:type',
+            \'c:const'
+       \]
+   \}
+" }

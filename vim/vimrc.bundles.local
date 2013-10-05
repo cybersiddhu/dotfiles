@@ -1,0 +1,6 @@
+Bundle 'c9s/perlomni.vim'
+Bundle 'hotchpotch/perldoc-vim'
+Bundle 'jnwhiteh/vim-golang'
+Bundle 'Blackrush/vim-gocode'
+Bundle 'dgryski/vim-godef'
+Bundle 'honza/vim-snippets'
