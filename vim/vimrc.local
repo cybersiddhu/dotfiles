@@ -31,6 +31,10 @@ endif
 
 set nocursorline
 
+" location for vimswap and other files
+    let g:spf13_consolidated_directory = $MYRCPATH
+" }
+
 " perl folding {
     let perl_fold = 1
     let perl_fold_blocks = 1
