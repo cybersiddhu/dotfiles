@@ -48,19 +48,22 @@
 
     " Use local bundles if available {
         if filereadable(expand(myrcpath . "/.vimrc.bundles.local"))
-            source expand(myrcpath. "/.vimrc.bundles.local")
+            let $MYBL = myrcpath. '/.vimrc.bundles.local'
+            source $MYBL
         endif
     " }
 
     " Use fork bundles if available {
         if filereadable(expand(myrcpath . "/.vimrc.bundles.fork"))
-            source expand(myrcpath. "/.vimrc.bundles.fork")
+            let $MYBF = myrcpath. '/.vimrc.bundles.fork'
+            source $MYBF
         endif
     " }
 
     " Use bundles config {
         if filereadable(expand(myrcpath . "/.vimrc.bundles"))
-            source expand(myrcpath. "/.vimrc.bundles")
+            let $MYB = myrcpath. '/.vimrc.bundles'
+            source $MYB
         endif
     " }
 
@@ -675,20 +678,22 @@
 
 " Use fork vimrc if available {
     if filereadable(expand(myrcpath. "/.vimrc.fork"))
-        source expand(myrcpath . "/.vimrc.fork")
+        let $MYF = myrcpath. '/.vimrc.fork'
+        source $MYF
     endif
 " }
 
 " Use local vimrc if available {
     if filereadable(expand(myrcpath. "/.vimrc.local"))
-        source expand(myrcpath . "/.vimrc.local")
+       let $MYL = myrcpath. '/.vimrc.local'
+       source $MYL
     endif
 " }
 
 " Use local gvimrc if available and gui is running {
     if has('gui_running')
         if filereadable(expand(myrcpath. "/.gvimrc.local"))
-            source ~/.gvimrc.local
+            "source ~/.gvimrc.local
         endif
     endif
 " }
