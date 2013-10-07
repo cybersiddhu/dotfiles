@@ -39,9 +39,8 @@
         filetype on
         filetype off
         let $MYVUNDLEPATH = myrcpath . '/bundle/vundle'
-        let &rtp = substitute(&rtp,$HOME.'\.vim',$MYRCPATH, 'g')
         set rtp+=$MYVUNDLEPATH
-        call vundle#rc()
+        call vundle#rc($MYRCPATH . '/bundle')
     " }
 
 " }
