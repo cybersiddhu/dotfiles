@@ -29,7 +29,7 @@
         "endif
     " }
 
-    " Needed to pickup custom path with configuration files{
+    " Needed to pickup custom pathar with configuration files{
       let myrcpath = expand($VIMDIR)
       let $MYRCPATH = myrcpath
     "}
@@ -40,6 +40,7 @@
         filetype off
         let $MYVUNDLEPATH = myrcpath . '/bundle/vundle'
         set rtp+=$MYVUNDLEPATH
+        set rtp^=$VIMDIR
         call vundle#rc()
     " }
 
