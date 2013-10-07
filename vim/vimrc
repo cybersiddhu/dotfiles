@@ -30,7 +30,7 @@
     " }
 
     " Needed to pickup custom path with configuration files{
-      let myrcpath = fnamemodify(expand($MYVIMRC),":h")
+      let myrcpath = expand($VIMDIR)
       let $MYRCPATH = myrcpath
     "}
 
