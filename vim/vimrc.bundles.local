@@ -1,3 +1,7 @@
+" bundle groups
+  let g:spf13_bundle_groups=['general', 'programming','snipmate', 'python', 'go', 'javascript', 'html', 'misc']
+" }
+
 Bundle 'c9s/perlomni.vim'
 Bundle 'Blackrush/vim-gocode'
 Bundle 'dgryski/vim-godef'

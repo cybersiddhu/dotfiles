@@ -1,8 +1,3 @@
-" bundle groups
-  let g:spf13_bundle_groups=['general', 'programming','snipmate', 'python', 'go', 'javascript', 'html', 'misc']
-" }
-
-
 UnBundle 'kchmck/vim-coffee-script'
 UnBundle 'tpope/vim-cucumber'
 UnBundle 'quentindecock/vim-cucumber-align-pipes'
@@ -11,20 +6,23 @@ UnBundle 'godlygeek/csapprox'
 UnBundle 'spf13/vim-gocode'
 
 
-if !exists('$XAUTHORITY')
-    set t_Co=256
-    let g:solarized_contrast="normal"    "default value is normal
-    let g:solarized_visibility="normal"    "default value is normal
-    let g:solarized_termcolors=16
-    set background=dark
-    color solarized
-else 
-    set t_Co=256
-    let g:solarized_contrast="normal"    "default value is normal
-    let g:solarized_visibility="normal"    "default value is normal 
-    let g:solarized_termcolors=16
-    set background=dark
-    color solarized
+let solarizeddir = bundle_dir . '/bundle/vim-colors-solarized'
+if isdirectory(solarizeddir)
+    if !exists('$XAUTHORITY')
+        set t_Co=256
+        let g:solarized_contrast="normal"    "default value is normal
+        let g:solarized_visibility="normal"    "default value is normal
+        let g:solarized_termcolors=16
+        set background=dark
+        color solarized
+    else 
+        set t_Co=256
+        let g:solarized_contrast="normal"    "default value is normal
+        let g:solarized_visibility="normal"    "default value is normal 
+        let g:solarized_termcolors=16
+        set background=dark
+        color solarized
+    endif
 endif
 
 
