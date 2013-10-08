@@ -1,15 +1,14 @@
-UnBundle  'spf13/PIV'
-UnBundle  'arnaud-lb/vim-php-namespace'
-UnBundle  'derekwyatt/vim-scala'
-UnBundle  'derekwyatt/vim-sbt'
-UnBundle  'kchmck/vim-coffee-script'
+" bundle groups
+  let g:spf13_bundle_groups=['general', 'programming','snipmate', 'python', 'go', 'javascript', 'html', 'misc']
+" }
 
 
+UnBundle 'kchmck/vim-coffee-script'
 UnBundle 'tpope/vim-cucumber'
 UnBundle 'quentindecock/vim-cucumber-align-pipes'
-UnBundle 'Puppet-Syntax-Highlighting'
-UnBundle 'honza/snipmate-snippets'
-
+UnBundle 'myusuf3/numbers.vim'
+UnBundle 'godlygeek/csapprox'
+UnBundle 'spf13/vim-gocode'
 
 
 if !exists('$XAUTHORITY')
@@ -22,7 +21,7 @@ if !exists('$XAUTHORITY')
 else 
     set t_Co=256
     let g:solarized_contrast="normal"    "default value is normal
-    let g:solarized_visibility="normal"    "default value is normal
+    let g:solarized_visibility="normal"    "default value is normal 
     let g:solarized_termcolors=16
     set background=dark
     color solarized
@@ -32,7 +31,7 @@ endif
 set nocursorline
 
 " location for vimswap and other files
-    let g:spf13_consolidated_directory = $MYRCPATH
+    let g:spf13_consolidated_directory = $VIMDIR . '/backups'
 " }
 
 " perl folding {

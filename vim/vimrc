@@ -29,18 +29,13 @@
         "endif
     " }
 
-    " Needed to pickup custom pathar with configuration files{
-      let myrcpath = expand($VIMDIR)
-      let $MYRCPATH = myrcpath
-    "}
-
     " Setup Bundle Support {
         " The next three lines ensure that the ~/.vim/bundle/ system works
         filetype on
         filetype off
-        let $MYVUNDLEPATH = myrcpath . '/bundle/vundle'
+        let $MYVUNDLEPATH = $VIMDIR . '/bundle/vundle'
         set rtp+=$MYVUNDLEPATH
-        call vundle#rc($MYRCPATH . '/bundle')
+        call vundle#rc()
     " }
 
 " }
@@ -48,22 +43,22 @@
 " Bundles {
 
     " Use local bundles if available {
-        if filereadable(expand(myrcpath . "/.vimrc.bundles.local"))
-            let $MYBL = myrcpath. '/.vimrc.bundles.local'
+        if filereadable(expand($VIMDIR . "/.vimrc.bundles.local"))
+            let $MYBL = $VIMDIR. '/.vimrc.bundles.local'
             source $MYBL
         endif
     " }
 
     " Use fork bundles if available {
-        if filereadable(expand(myrcpath . "/.vimrc.bundles.fork"))
-            let $MYBF = myrcpath. '/.vimrc.bundles.fork'
+        if filereadable(expand($VIMDIR . "/.vimrc.bundles.fork"))
+            let $MYBF = $VIMDIR. '/.vimrc.bundles.fork'
             source $MYBF
         endif
     " }
 
     " Use bundles config {
-        if filereadable(expand(myrcpath . "/.vimrc.bundles"))
-            let $MYB = myrcpath. '/.vimrc.bundles'
+        if filereadable(expand($VIMDIR . "/.vimrc.bundles"))
+            let $MYB = $VIMDIR. '/.vimrc.bundles'
             source $MYB
         endif
     " }
@@ -128,7 +123,7 @@
 
 " Vim UI {
 
-    if filereadable(expand(myrcpath . "/vim/bundle/vim-colors-solarized/colors/solarized.vim"))
+    if filereadable(expand($VIMDIR . "/bundle/vim-colors-solarized/colors/solarized.vim"))
         let g:solarized_termcolors=256
         color solarized                 " Load a colorscheme
     endif
@@ -678,22 +673,22 @@
 " }
 
 " Use fork vimrc if available {
-    if filereadable(expand(myrcpath. "/.vimrc.fork"))
-        let $MYF = myrcpath. '/.vimrc.fork'
+    if filereadable(expand($VIMDIR. "/.vimrc.fork"))
+        let $MYF = $VIMDIR. '/.vimrc.fork'
         source $MYF
     endif
 " }
 
 " Use local vimrc if available {
-    if filereadable(expand(myrcpath. "/.vimrc.local"))
-       let $MYL = myrcpath. '/.vimrc.local'
+    if filereadable(expand($VIMDIR. "/.vimrc.local"))
+       let $MYL = $VIMDIR. '/.vimrc.local'
        source $MYL
     endif
 " }
 
 " Use local gvimrc if available and gui is running {
     if has('gui_running')
-        if filereadable(expand(myrcpath. "/.gvimrc.local"))
+        if filereadable(expand($VIMDIR. "/.gvimrc.local"))
             "source ~/.gvimrc.local
         endif
     endif
