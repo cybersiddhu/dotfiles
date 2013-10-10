@@ -27,19 +27,30 @@ fi
 
 
 ## -- rbenv setup
-if [ -d "${CUSTOMDIR}/.rbenv/bin" ]
-then
-    export PATH="${CUSTOMDIR}/.rbenv/bin:$PATH"
-    eval "$(rbenv init -)"
-fi
+#if [ -d "${CUSTOMDIR}/.rbenv/bin" ]
+#then
+    #export PATH="${CUSTOMDIR}/.rbenv/bin:$PATH"
+    #eval "$(rbenv init -)"
+#fi
 
 #plenv
 PLENV_ROOT=${CUSTOMDIR}/plenv
 if [ -d "$PLENV_ROOT/bin" ] 
 then 
-    export $PLENV_ROOT
+    export PLENV_ROOT
     export PATH="${PLENV_ROOT}/bin:$PATH"
     eval "$(plenv init -)"
+    plenv rehash
+fi
+
+#pyenv
+PYENV_ROOT=${CUSTOMDIR}/pyenv
+if [ -d "$PYENV_ROOT/bin" ] 
+then 
+    export PYENV_ROOT
+    export PATH="${PYENV_ROOT}/bin:$PATH"
+    eval "$(pyenv init -)"
+    pyenv rehash
 fi
 
 export DISABLE_AUTO_TITLE=true
