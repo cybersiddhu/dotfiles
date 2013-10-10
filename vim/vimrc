@@ -30,6 +30,7 @@
     " }
 
     " Setup Bundle Support {
+
         " The next three lines ensure that the ~/.vim/bundle/ system works
         filetype on
         filetype off
@@ -52,7 +53,7 @@
     " Use fork bundles if available {
         if filereadable(expand($VIMDIR . "/.vimrc.bundles.fork"))
             let $MYBF = $VIMDIR. '/.vimrc.bundles.fork'
-            source $MYBF
+            source $MYBF    
         endif
     " }
 

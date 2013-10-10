@@ -1,3 +1,4 @@
+export ADOTDIR=${CUSTOMDIR}/dotfiles/.antigen
 if [ -d "${CUSTOMDIR}/antigen" ]
 then
     source ${CUSTOMDIR}/antigen/antigen.zsh
@@ -33,9 +34,11 @@ then
 fi
 
 #plenv
-if [ -d "$CUSTOMDIR/.plenv/bin" ] 
+PLENV_ROOT=${CUSTOMDIR}/plenv
+if [ -d "$PLENV_ROOT/bin" ] 
 then 
-    export PATH="${CUSTOMDIR}/.plenv/bin:$PATH"
+    export $PLENV_ROOT
+    export PATH="${PLENV_ROOT}/bin:$PATH"
     eval "$(plenv init -)"
 fi
 
