@@ -57,3 +57,12 @@ export DISABLE_AUTO_TITLE=true
 
 export GOPATH=${CUSTOMDIR}/Projects/golang
 export PATH=${PATH}:${GOPATH}/bin
+
+if [ ${VIMDIR+defined} ]; then
+    alias vim="vim -u ${VIMDIR}/.vimrc"
+fi
+
+if [ -d ${CUSTOMDIR}/dotfiles/tmux ];then
+    alias tmux="tmux -f ${CUSTOMDIR}/dotfiles/tmux/.tmux.conf"
+fi
+
