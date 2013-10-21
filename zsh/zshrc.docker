@@ -25,6 +25,10 @@ if [ -d "${CUSTOMDIR}/bin" ] ; then
     PATH="$CUSTOMDIR/bin:${PATH}"
 fi
 
+if [ -d "${VIMDIR}/runtime" ];then
+    VIMRUNTIME="${VIMDIR}/runtime"
+    export VIMRUNTIME
+fi
 
 ## -- rbenv setup
 #if [ -d "${CUSTOMDIR}/.rbenv/bin" ]
