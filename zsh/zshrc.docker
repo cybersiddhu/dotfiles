@@ -6,36 +6,33 @@ then
     antigen bundles <<EOBUNDLES
     git
     perl
-    rvm
     cpanm
     zsh-users/zsh-syntax-highlighting
     command-not-found
-    debian
-    battery
     history-substring-search
     docker
     web-search
 EOBUNDLES
 fi
-
 antigen-theme eastwood
 antigen-apply
+export DISABLE_AUTO_TITLE=true
+
 
 if [ -d "${CUSTOMDIR}/bin" ] ; then
     PATH="$CUSTOMDIR/bin:${PATH}"
 fi
 
+
+# vim setup
 if [ -d "${VIMDIR}/runtime" ];then
     VIMRUNTIME="${VIMDIR}/runtime"
     export VIMRUNTIME
 fi
+if [ ${VIMDIR+defined} ]; then
+    alias vim="vim -u ${VIMDIR}/.vimrc"
+fi
 
-## -- rbenv setup
-#if [ -d "${CUSTOMDIR}/.rbenv/bin" ]
-#then
-    #export PATH="${CUSTOMDIR}/.rbenv/bin:$PATH"
-    #eval "$(rbenv init -)"
-#fi
 
 #plenv
 PLENV_ROOT=${CUSTOMDIR}/plenv
@@ -57,16 +54,22 @@ then
     pyenv rehash
 fi
 
-export DISABLE_AUTO_TITLE=true
 
-export GOPATH=${CUSTOMDIR}/Projects/golang
-export PATH=${PATH}:${GOPATH}/bin
-
-if [ ${VIMDIR+defined} ]; then
-    alias vim="vim -u ${VIMDIR}/.vimrc"
+#golang
+if [ -d ${HOME}/golang ]; then
+    export GOPATH=${HOME}/golang
+    export PATH=${PATH}:${GOPATH}/bin
 fi
 
+#tmux
 if [ -d ${CUSTOMDIR}/dotfiles/tmux ];then
     alias tmux="tmux -f ${CUSTOMDIR}/dotfiles/tmux/.tmux.conf"
 fi
 
+
+## -- rbenv setup
+#if [ -d "${CUSTOMDIR}/.rbenv/bin" ]
+#then
+    #export PATH="${CUSTOMDIR}/.rbenv/bin:$PATH"
+    #eval "$(rbenv init -)"
+#fi
