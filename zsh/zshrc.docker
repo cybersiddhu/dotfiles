@@ -56,12 +56,16 @@ fi
 
 
 #golang
+if [ -d ${CUSTOMDIR}/golang ]; then
+    export GOROOT=${CUSTOMDIR}/golang/go
+    export PATH=${PATH}:${GOROOT}/bin
+fi
 if [ -d ${HOME}/golang ]; then
     export GOPATH=${HOME}/golang
     export PATH=${PATH}:${GOPATH}/bin
 fi
 
-#tmux
+#tmux{}
 if [ -d ${CUSTOMDIR}/dotfiles/tmux ];then
     alias tmux="tmux -f ${CUSTOMDIR}/dotfiles/tmux/.tmux.conf"
 fi
