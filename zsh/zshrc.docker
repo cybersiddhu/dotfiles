@@ -63,6 +63,9 @@ fi
 if [ -d ${HOME}/golang ]; then
     export GOPATH=${HOME}/golang
     export PATH=${PATH}:${GOPATH}/bin
+    if [ ! -e ${GOPATH}/bin/godoc ]; then
+        go get code.google.com/p/go.tools/cmd/...
+    fi
 fi
 
 #tmux{}
