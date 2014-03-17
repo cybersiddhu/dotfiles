@@ -76,6 +76,11 @@ if [ -d ${CUSTOMDIR}/dotfiles/tmux ];then
     alias tmux="tmux -f ${CUSTOMDIR}/dotfiles/tmux/.tmux.conf"
 fi
 
+#rackspace nova client
+if [ -e ${HOME}/.racknova ]; then
+    source ${HOME}/.racknova
+fi
+
 
 ## -- rbenv setup
 #if [ -d "${CUSTOMDIR}/.rbenv/bin" ]
