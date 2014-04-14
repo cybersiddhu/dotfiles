@@ -42,6 +42,9 @@ then
     export PATH="${PLENV_ROOT}/bin:$PATH"
     eval "$(plenv init -)"
     plenv rehash
+    if [ -d ${PWD}/lib ]; then
+        eval $(perl -I${PWD}/local/lib/perl5 -I${PWD}/lib -Mlocal::lib=${PWD}/local)
+    fi
 fi
 
 #pyenv
