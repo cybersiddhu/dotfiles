@@ -10,7 +10,6 @@ then
     zsh-users/zsh-syntax-highlighting
     command-not-found
     history-substring-search
-    docker
     web-search
 EOBUNDLES
 fi
@@ -18,6 +17,7 @@ antigen-theme eastwood
 antigen-apply
 export DISABLE_AUTO_TITLE=true
 
+alias s="cd .."
 
 if [ -d "${CUSTOMDIR}/bin" ] ; then
     PATH="$CUSTOMDIR/bin:${PATH}"
@@ -91,3 +91,8 @@ fi
     #export PATH="${CUSTOMDIR}/.rbenv/bin:$PATH"
     #eval "$(rbenv init -)"
 #fi
+
+if [ -e ${CUSTOMDIR}/eclipse/eclimd ]; then
+    Xvfb :1 -screen 0 1024x768x24 &
+    DISPLAY=:1 ${CUSTOMDIR}/eclipse/eclimd -b
+fi
