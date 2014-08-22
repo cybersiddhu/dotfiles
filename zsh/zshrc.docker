@@ -96,6 +96,6 @@ if [ -e ${CUSTOMDIR}/eclipse/eclimd ]; then
     ps c | grep Xvfb &>/dev/null
     if [ $? -ne 0 ]; then
         Xvfb :1 -screen 0 1024x768x24 &
-        DISPLAY=:1 ${CUSTOMDIR}/eclipse/eclimd -b
+        DISPLAY=:1 ${CUSTOMDIR}/eclipse/eclimd -Dosgi.instance.area.default=@user.home -b
     fi
 fi
