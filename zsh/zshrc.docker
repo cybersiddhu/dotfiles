@@ -99,3 +99,5 @@ if [ -e ${CUSTOMDIR}/eclipse/eclimd ]; then
         DISPLAY=:1 ${CUSTOMDIR}/eclipse/eclimd -b -Dosgi.instance.area.default=@user.home 
     fi
 fi
+
+export ZDOTDIR=${CUSTOMDIR}/dotfiles/shell
