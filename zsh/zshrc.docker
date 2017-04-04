@@ -79,18 +79,11 @@ if [ -d ${CUSTOMDIR}/dotfiles/tmux ];then
     alias tmux="tmux -f ${CUSTOMDIR}/dotfiles/tmux/.tmux.conf"
 fi
 
-#rackspace nova client
-if [ -e ${HOME}/.racknova ]; then
-    source ${HOME}/.racknova
+# gradle
+if [ -e /opt/gradle-3.4.1 ];then
+    export PATH=${PATH}:/opt/gradle-3.4.1/bin
 fi
 
-
-## -- rbenv setup
-#if [ -d "${CUSTOMDIR}/.rbenv/bin" ]
-#then
-    #export PATH="${CUSTOMDIR}/.rbenv/bin:$PATH"
-    #eval "$(rbenv init -)"
-#fi
 
 if [ -e ${CUSTOMDIR}/eclipse/eclimd ]; then
     ps c | grep Xvfb &>/dev/null
