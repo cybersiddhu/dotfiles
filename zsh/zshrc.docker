@@ -74,13 +74,12 @@ if [ -d ${HOME}/golang ]; then
     fi
 fi
 
-#tmux{}
 if [ -d ${CUSTOMDIR}/dotfiles/tmux ];then
     alias tmux="tmux -f ${CUSTOMDIR}/dotfiles/tmux/.tmux.conf"
 fi
 
 # gradle
-if [ -e /opt/gradle-3.4.1 ];then
+if [ -d /opt/gradle-3.4.1 ];then
     export PATH=${PATH}:/opt/gradle-3.4.1/bin
 fi
 
