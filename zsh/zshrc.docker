@@ -2,7 +2,7 @@ export ADOTDIR=${CUSTOMDIR}/dotfiles/.antigen
 if [ -d "${CUSTOMDIR}/antigen" ]
 then
     source ${CUSTOMDIR}/antigen/antigen.zsh
-    antigen-use oh-my-zsh
+    antigen use oh-my-zsh
     antigen bundles <<EOBUNDLES
     git
     perl
@@ -13,8 +13,8 @@ then
     web-search
 EOBUNDLES
 fi
-antigen-theme eastwood
-antigen-apply
+antigen theme eastwood
+antigen apply
 export DISABLE_AUTO_TITLE=true
 
 alias s="cd .."
