@@ -79,8 +79,8 @@ if [ -d ${CUSTOMDIR}/dotfiles/tmux ];then
 fi
 
 # gradle
-if [ -d /opt/gradle-3.4.1 ];then
-    export PATH=${PATH}:/opt/gradle-3.4.1/bin
+if [ -d /opt/gradle-3.3 ];then
+    export PATH=${PATH}:/opt/gradle-3.3/bin
 fi
 
 
